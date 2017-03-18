@@ -1,0 +1,9 @@
+package top
+
+const ERROR_TOP = 0xb0000
+
+const ERROR_TOP_NOT_FOUND_ID = ERROR_TOP + 1
+
+const ERROR_TOP_NOT_FOUND = ERROR_TOP + 2
+
+const ERROR_TOP_NOT_FOUND_ALIAS = ERROR_TOP + 3
