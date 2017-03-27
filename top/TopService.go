@@ -410,12 +410,12 @@ func (S *TopService) HandleTopQueryTask(a ITopApp, task *TopQueryTask) error {
 	}
 
 	if task.CityId != 0 {
-		sql.WriteString(" AND cityid=?")
+		sql.WriteString(" AND (cityid=? OR cityid=0)")
 		args = append(args, task.CityId)
 	}
 
 	if task.CityPrefix != "" {
-		sql.WriteString(" AND citypath LIKE ?")
+		sql.WriteString(" AND (citypath LIKE ? OR cityid=0)")
 		args = append(args, task.CityPrefix+"%")
 	}
 
@@ -430,7 +430,7 @@ func (S *TopService) HandleTopQueryTask(a ITopApp, task *TopQueryTask) error {
 	}
 
 	if task.GroupId != 0 {
-		sql.WriteString(" AND groupid=?")
+		sql.WriteString(" AND (groupid=? OR groupid=0)")
 		args = append(args, task.GroupId)
 	}
 
